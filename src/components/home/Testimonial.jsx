@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { TESTIMONIAL } from "../../tokens/content";
 
 const Testimonial = () => (
   <Box as="section" py={16} px={4} bg="pink.100">
@@ -6,12 +7,11 @@ const Testimonial = () => (
       {/* Header */}
       <Box flex="2" mb={{ base: 12, md: 0 }}>
         <Heading as="h2" fontSize="4xl" fontWeight="bold" color="gray.900" mb={6}>
-          See What Users <br />
-          <Text as="span" className="text-gradient-brand">Think of Dotheyswipe®</Text>
+          {TESTIMONIAL.heading} <br />
+          <Text as="span" className="text-gradient-brand">{TESTIMONIAL.headingHighlight}</Text>
         </Heading>
         <Text fontSize="lg" color="gray.700" maxW="2xl">
-          Do They Swipe is a platform designed to help individuals discreetly and anonymously
-          check if their partners or others they know are actively using dating apps.
+          {TESTIMONIAL.description}
         </Text>
       </Box>
 
@@ -27,8 +27,7 @@ const Testimonial = () => (
         mx="auto"
       >
         <Text color="gray.700" fontSize="lg" mb={6} textAlign="center">
-          "I suspected something was off and decided to give this a try. Within minutes, I had
-          answers. Life-changing!"
+          {TESTIMONIAL.quote}
         </Text>
 
         <Flex justify="center" mb={3} gap={1}>
@@ -37,7 +36,7 @@ const Testimonial = () => (
           ))}
         </Flex>
 
-        <Text fontWeight="medium" textAlign="center" color="gray.900">Sandra W</Text>
+        <Text fontWeight="medium" textAlign="center" color="gray.900">{TESTIMONIAL.reviewer}</Text>
       </Box>
     </Flex>
   </Box>

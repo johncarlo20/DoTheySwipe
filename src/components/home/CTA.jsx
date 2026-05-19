@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Text, Button, Image } from "@chakra-ui/react";
 import { BRAND_GRADIENT } from "../../theme";
+import { CTA, NAV } from "../../tokens/content";
 import girl from "../../assets/images/girlImage.jfif";
 
 const CTASection = () => (
@@ -17,10 +18,10 @@ const CTASection = () => (
       {/* Text */}
       <Box w={{ md: "2/3" }} py={16} textAlign={{ base: "center", md: "left" }} mb={{ base: 10, md: 0 }}>
         <Heading as="h2" fontSize={{ base: "4xl", md: "5xl" }} fontWeight="bold" color="white" mb={6}>
-          Get the Clarity You Deserve.
+          {CTA.heading}
         </Heading>
         <Text fontSize="xl" color="white" opacity={0.9} mb={8}>
-          Search millions of profiles quickly and securely
+          {CTA.subtext}
         </Text>
 
         <Flex align="center" justify="space-between" rounded="2xl" px={6} py={4}>
@@ -54,7 +55,7 @@ const CTASection = () => (
               </defs>
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <Text className="text-gradient-brand">Search on Tinder</Text>
+            <Text className="text-gradient-brand">{CTA.ctaLabel}</Text>
           </Button>
         </Flex>
       </Box>
@@ -67,7 +68,7 @@ const CTASection = () => (
           maxH="400px"
           w="full"
           rounded="2xl"
-          alt="Profile"
+          alt={CTA.imageAlt}
         />
       </Box>
     </Flex>

@@ -3,6 +3,7 @@ import { Box, Flex, Grid, Heading, Text, Button, Image, Container } from "@chakr
 import { Link as RouterLink } from "react-router-dom";
 import heroImage from "../../assets/images/heroImage.png";
 import { BRAND_GRADIENT } from "../../theme";
+import { HERO, NAV } from "../../tokens/content";
 
 const Hero = () => (
   <Box
@@ -25,16 +26,16 @@ const Hero = () => (
             color="gray.950"
             mb={6}
           >
-            <Text as="span" color="brand.500">Find out </Text>
-            if they are secretly on Tinder
+            <Text as="span" color="brand.500">{HERO.headingHighlight}</Text>
+            {HERO.headingRest}
           </Heading>
 
           <Box mb={8}>
             <Text fontSize={{ md: "lg", lg: "2xl" }} color="gray.700" mb={4}>
-              Did you know that <strong>42%</strong> of Tinder users already have a partner?
+              {HERO.statPrefix} <strong>{HERO.stat}</strong> {HERO.statSuffix}
             </Text>
             <Text fontSize={{ lg: "2xl" }} color="gray.700" mb={4}>
-              Discover the truth — we help hundreds find out if their partner is using dating apps.
+              {HERO.subtext}
             </Text>
           </Box>
 
@@ -46,7 +47,7 @@ const Hero = () => (
           >
             <Button
               as={RouterLink}
-              to="/about"
+              to={NAV.searchCta.to}
               rounded="full"
               px={8}
               py={4}
@@ -57,14 +58,14 @@ const Hero = () => (
               _hover={{ transform: "scale(1.05)", boxShadow: "xl" }}
               transition="all 0.2s"
             >
-              Search on Tinder <ChevronRight size={20} />
+              {HERO.ctaLabel} <ChevronRight size={20} />
             </Button>
           </Flex>
         </Box>
 
         {/* Right */}
         <Box p={6} display="flex">
-          <Image src={heroImage} rounded="full" roundedTop="none" w="full" h="full" alt="Woman using dating app on her phone" />
+          <Image src={heroImage} rounded="full" roundedTop="none" w="full" h="full" alt={HERO.imageAlt} />
         </Box>
       </Grid>
     </Container>
