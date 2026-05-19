@@ -5,21 +5,9 @@ import {
 } from "@chakra-ui/react";
 import SocialIcon from "./SocialIcon";
 import logo from "../../assets/images/logo.png";
+import { SITE, NAV } from "../../tokens/content";
 
-const socialLinks = [
-  { href: "https://facebook.com/", label: "Facebook", Icon: Facebook },
-  { href: "https://twitter.com/", label: "Twitter", Icon: Twitter },
-  { href: "https://linkedin.com/", label: "LinkedIn", Icon: Linkedin },
-  { href: "https://instagram.com/", label: "Instagram", Icon: Instagram },
-];
-
-const NAV_LINKS = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About Us" },
-  { to: "/faq", label: "FAQ's" },
-  { to: "/privacy-policy", label: "Privacy Policy" },
-  { to: "/contact", label: "Contact Us" },
-];
+const SOCIAL_ICONS = { Facebook, Twitter, LinkedIn: Linkedin, Instagram };
 
 const Footer = () => {
   const location = useLocation();
@@ -41,16 +29,16 @@ const Footer = () => {
         {/* Logo + Nav */}
         <Flex direction="column" align="center" mb={{ base: 0, md: 4 }}>
           <Flex align="center" gap={2} mb={6}>
-            <Image src={logo} w={{ base: "32px", lg: "36px" }} alt="DoTheySwipe logo" />
+            <Image src={logo} w={{ base: "32px", lg: "36px" }} alt={SITE.logoAlt} />
             <NavLink to="/" style={{ textDecoration: "none" }}>
               <Text fontSize={{ base: "2xl", md: "5xl" }} fontWeight="bold" className="text-gradient-brand">
-                DoTheySwipe
+                {SITE.name}
               </Text>
             </NavLink>
           </Flex>
 
           <Flex as="nav" wrap="wrap" justify="center" gap={{ base: 6, md: 8 }} mb={6} fontSize={{ base: "sm", md: "lg" }}>
-            {NAV_LINKS.map(({ to, label }) => (
+            {NAV.footerLinks.map(({ to, label }) => (
               <NavLink
                 key={to}
                 to={to}
@@ -76,10 +64,15 @@ const Footer = () => {
           pt={6}
           gap={{ base: 4, md: 0 }}
         >
-          <Text color="#142546">© 2024 All Rights Reserved dotheyswipe.com</Text>
+          <Text color="#142546">{SITE.copyright}</Text>
           <HStack gap={3}>
-            {socialLinks.map((item) => (
-              <SocialIcon key={item.label} {...item} />
+            {NAV.socialLinks.map((item) => (
+              <SocialIcon
+                key={item.label}
+                href={item.href}
+                label={item.label}
+                Icon={SOCIAL_ICONS[item.label]}
+              />
             ))}
           </HStack>
         </Flex>

@@ -6,12 +6,7 @@ import {
 } from "@chakra-ui/react";
 import logo from "../../assets/images/logo.png";
 import { BRAND_GRADIENT } from "../../theme";
-
-const NAV_LINKS = [
-  { to: "/", label: "Home", end: true },
-  { to: "/about", label: "About Us" },
-  { to: "/faq", label: "FAQ's" },
-];
+import { SITE, NAV } from "../../tokens/content";
 
 const navLinkStyle = ({ isActive }) => ({
   fontWeight: 500,
@@ -64,15 +59,15 @@ const Navbar = () => {
         >
           {/* Logo */}
           <Flex align="center" gap={2} pl={{ base: 4, md: 0 }}>
-            <Image src={logo} w={{ base: "32px", lg: "36px" }} alt="DoTheySwipe logo" />
+            <Image src={logo} w={{ base: "32px", lg: "36px" }} alt={SITE.logoAlt} />
             <Text fontSize="2xl" fontWeight="bold" className="text-gradient-brand">
-              DoTheySwipe
+              {SITE.name}
             </Text>
           </Flex>
 
           {/* Desktop nav */}
           <HStack gap={8} display={{ base: "none", md: "flex" }} align="center">
-            {NAV_LINKS.map(({ to, label, end }) => (
+            {NAV.headerLinks.map(({ to, label, end }) => (
               <NavLink key={to} to={to} end={end} style={navLinkStyle}>
                 {label}
               </NavLink>
@@ -81,7 +76,7 @@ const Navbar = () => {
             {/* Gradient-border CTA */}
             <Box
               as={NavLink}
-              to="/search"
+              to={NAV.searchCta.to}
               px={5}
               py={2.5}
               rounded="full"
@@ -95,7 +90,7 @@ const Navbar = () => {
                 textDecoration: "none",
               }}
             >
-              <Text className="text-gradient-brand">Search on Tinder</Text>
+              <Text className="text-gradient-brand">{NAV.searchCta.label}</Text>
             </Box>
           </HStack>
 
@@ -125,7 +120,7 @@ const Navbar = () => {
               borderColor="gray.200"
             >
               <Flex direction="column" gap={4} px={4} pb={6} pt={4}>
-                {NAV_LINKS.map(({ to, label, end }) => (
+                {NAV.headerLinks.map(({ to, label, end }) => (
                   <NavLink
                     key={to}
                     to={to}
@@ -143,7 +138,7 @@ const Navbar = () => {
 
                 <Box
                   as={NavLink}
-                  to="/search"
+                  to={NAV.searchCta.to}
                   px={5}
                   py={3}
                   rounded="full"
@@ -158,7 +153,7 @@ const Navbar = () => {
                     textDecoration: "none",
                   }}
                 >
-                  <Text className="text-gradient-brand">Search on Tinder</Text>
+                  <Text className="text-gradient-brand">{NAV.searchCta.label}</Text>
                 </Box>
               </Flex>
             </Box>
