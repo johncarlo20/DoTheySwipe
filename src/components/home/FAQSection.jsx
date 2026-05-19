@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Text, Button, Accordion } from "@chakra-ui/react";
 import FAQItem from "./FAQItem";
 import { faqItems } from "../../data/faqData";
+import { FAQ_SECTION } from "../../tokens/content";
 
 const FAQSection = () => (
   <Box as="section" py={16} px={4} rounded="xl">
@@ -14,11 +15,11 @@ const FAQSection = () => (
       >
         <Box>
           <Heading as="h2" fontSize={{ base: "4xl", md: "5xl" }} fontWeight="bold" color="gray.900" mb={4}>
-            Frequently{" "}
-            <Text as="span" className="text-gradient-brand">Asked Questions.</Text>
+            {FAQ_SECTION.heading}{" "}
+            <Text as="span" className="text-gradient-brand">{FAQ_SECTION.headingHighlight}</Text>
           </Heading>
           <Text fontSize="xl" color="gray.700" maxW="3xl">
-            Answers to Common Questions About "DoTheySwipe"
+            {FAQ_SECTION.subtext}
           </Text>
         </Box>
 
@@ -35,7 +36,7 @@ const FAQSection = () => (
             _hover={{ boxShadow: "lg" }}
             transition="all 0.3s"
           >
-            View all FAQs
+            {FAQ_SECTION.viewAllLabel}
           </Button>
         </Box>
       </Flex>

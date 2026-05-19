@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Heading, Text } from "@chakra-ui/react";
 import PricingCard from "./PricingCard";
 import { pricingPlans } from "../../data/pricingData";
+import { PRICING } from "../../tokens/content";
 
 const Pricing = () => (
   <Box
@@ -13,11 +14,11 @@ const Pricing = () => (
   >
     <Container maxW="6xl" mb={6}>
       <Heading as="h2" fontSize={{ base: "4xl", md: "5xl" }} fontWeight="bold" color="gray.900" mb={4}>
-        Choose Your{" "}
-        <Text as="span" className="text-gradient-brand">Search Package's</Text>
+        {PRICING.heading}{" "}
+        <Text as="span" className="text-gradient-brand">{PRICING.headingHighlight}</Text>
       </Heading>
       <Text fontSize="xl" color="gray.700" mb={8} maxW="2xl">
-        Discover the perfect search package for your needs on "Dotheyswipe."
+        {PRICING.subtext}
       </Text>
 
       <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={8}>

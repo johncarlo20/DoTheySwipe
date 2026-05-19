@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Heading } from "@chakra-ui/react";
 import Card from "./Card.jsx";
 import { howItWorksSteps } from "../../data/howItWorksData";
+import { HOW_IT_WORKS } from "../../tokens/content";
 
 const HowItWorks = () => (
   <Box
@@ -23,7 +24,7 @@ const HowItWorks = () => (
         mb={16}
         className="text-gradient-brand"
       >
-        How does it work
+        {HOW_IT_WORKS.heading}
       </Heading>
 
       <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={8}>
