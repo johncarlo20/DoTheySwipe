@@ -3,6 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import searchImage from "../../assets/images/searchImage.png";
 import { BRAND_GRADIENT } from "../../theme";
+import { SEARCH } from "../../tokens/content";
 
 const SearchForm = ({ layout }) => (
   <Box
@@ -27,11 +28,10 @@ const SearchForm = ({ layout }) => (
       <Box py={{ base: 8, md: 4, lg: 8 }}>
         <Box mb={{ base: 8, md: 4, lg: 8 }}>
           <Heading as="h2" fontSize="2xl" fontWeight="bold" color="gray.800">
-            Search <Text as="span" color="brand.500">for a Person</Text>
+            {SEARCH.heading} <Text as="span" color="brand.500">{SEARCH.headingHighlight}</Text>
           </Heading>
           <Text fontSize="sm" color="gray.600" mt={2}>
-            Find the individual you're looking for by entering specific details,
-            such as their name, age, and gender.
+            {SEARCH.subtext}
           </Text>
         </Box>
 
@@ -39,11 +39,11 @@ const SearchForm = ({ layout }) => (
           {/* First name */}
           <Field.Root required>
             <Field.Label fontWeight="medium" color="gray.700" mb={2}>
-              First name <Text as="span" className="text-gradient-brand">*</Text>
+              {SEARCH.fields.firstName.label} <Text as="span" className="text-gradient-brand">*</Text>
             </Field.Label>
             <Input
               type="text"
-              placeholder="First Name"
+              placeholder={SEARCH.fields.firstName.placeholder}
               borderColor="gray.300"
               rounded="lg"
               px={4}
@@ -56,11 +56,11 @@ const SearchForm = ({ layout }) => (
             {/* Age */}
             <Field.Root required>
               <Field.Label fontWeight="medium" color="gray.700" mb={2}>
-                Age <Text as="span" className="text-gradient-brand">*</Text>
+                {SEARCH.fields.age.label} <Text as="span" className="text-gradient-brand">*</Text>
               </Field.Label>
               <Input
                 type="number"
-                placeholder="Enter age"
+                placeholder={SEARCH.fields.age.placeholder}
                 borderColor="gray.300"
                 rounded="lg"
                 px={4}
@@ -72,7 +72,7 @@ const SearchForm = ({ layout }) => (
             {/* Gender */}
             <Field.Root required>
               <Field.Label fontWeight="medium" color="gray.700" mb={2}>
-                Gender <Text as="span" className="text-gradient-brand">*</Text>
+                {SEARCH.fields.gender.label} <Text as="span" className="text-gradient-brand">*</Text>
               </Field.Label>
               <Box
                 as="select"
@@ -85,10 +85,9 @@ const SearchForm = ({ layout }) => (
                 bg="white"
                 _focus={{ ring: "2px", ringColor: "brand.500", outline: "none" }}
               >
-                <option value="">Choose</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
+                {SEARCH.fields.gender.options.map(({ value, label }) => (
+                  <option key={value} value={value}>{label}</option>
+                ))}
               </Box>
             </Field.Root>
           </Grid>
@@ -111,14 +110,14 @@ const SearchForm = ({ layout }) => (
             alignItems="center"
             gap={2}
           >
-            Continue <ChevronRight size={20} />
+            {SEARCH.ctaLabel} <ChevronRight size={20} />
           </Button>
         </Box>
       </Box>
 
       {/* Right – illustration */}
       <Box display="flex" flexDirection="column" order={{ base: -1, md: 1 }} alignSelf="end" color="white">
-        <Image src={searchImage} alt="Search illustration" objectFit="cover" w="full" />
+        <Image src={searchImage} alt={SEARCH.imageAlt} objectFit="cover" w="full" />
       </Box>
     </Grid>
   </Box>

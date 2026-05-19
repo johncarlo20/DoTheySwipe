@@ -1,6 +1,7 @@
 import { Box, Grid, Image, Button, Text } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { profiles } from "../../data/profilesData";
+import { LISTING } from "../../tokens/content";
 
 const Listing = () => (
   <Box position="relative">
@@ -27,7 +28,7 @@ const Listing = () => (
             w="full"
             h="full"
             filter="blur(8px)"
-            alt="Blurred profile preview"
+            alt={LISTING.blurredImageAlt}
           />
         </Box>
       ))}
@@ -56,7 +57,7 @@ const Listing = () => (
         _hover={{ transform: "scale(1.05)" }}
         transition="transform 0.2s"
       >
-        <Text className="text-gradient-brand">Buy now to see results</Text>
+        <Text className="text-gradient-brand">{LISTING.ctaLabel}</Text>
       </Button>
     </Box>
   </Box>

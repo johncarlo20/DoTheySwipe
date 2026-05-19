@@ -2,6 +2,7 @@ import {
   Box, Grid, Heading, Text, Input, Textarea, Button, Field, Image, Flex,
 } from "@chakra-ui/react";
 import { BRAND_GRADIENT } from "../../theme";
+import { CONTACT } from "../../tokens/content";
 import youngCouple from "../../assets/images/young-couple.png";
 import vector from "../../assets/images/Vector.png";
 
@@ -29,11 +30,11 @@ const Contact = () => (
           <Box style={{ backgroundImage: `url(${vector})` }} bgCenter="center">
             <Box pt={8} textAlign="center">
               <Heading as="h2" fontSize="4xl" fontWeight="bold" mb={4} color="white">
-                Have Questions?
+                {CONTACT.panelHeading}
               </Heading>
-              <Text fontSize="lg" color="white">Can't find the answer you're looking for?</Text>
+              <Text fontSize="lg" color="white">{CONTACT.panelSubtext}</Text>
             </Box>
-            <Image src={youngCouple} alt="Happy couple" objectFit="cover" w="full" h="auto" />
+            <Image src={youngCouple} alt={CONTACT.panelImageAlt} objectFit="cover" w="full" h="auto" />
           </Box>
         </Flex>
 
@@ -49,40 +50,40 @@ const Contact = () => (
         >
           <Box>
             <Heading as="h3" fontSize="4xl" fontWeight="bold" color="gray.900" mb={3}>
-              Get in <Text as="span" className="text-gradient-brand">touch</Text>
+              {CONTACT.formHeading} <Text as="span" className="text-gradient-brand">{CONTACT.formHeadingHighlight}</Text>
             </Heading>
-            <Text fontSize="lg" color="gray.900">Our friendly team would love to hear from you.</Text>
+            <Text fontSize="lg" color="gray.900">{CONTACT.formSubtext}</Text>
           </Box>
 
           <Box as="form" display="flex" flexDirection="column" gap={4}>
             <Field.Root required>
               <Field.Label fontWeight="medium" color="gray.700" mb={2} fontSize="lg">
-                First name <Text as="span" className="text-gradient-brand">*</Text>
+                {CONTACT.fields.firstName.label} <Text as="span" className="text-gradient-brand">*</Text>
               </Field.Label>
-              <Input type="text" placeholder="First Name" {...inputStyles} />
+              <Input type="text" placeholder={CONTACT.fields.firstName.placeholder} {...inputStyles} />
             </Field.Root>
 
             <Field.Root required>
               <Field.Label fontWeight="medium" color="gray.700" mb={2} fontSize="lg">
-                Email <Text as="span" className="text-gradient-brand">*</Text>
+                {CONTACT.fields.email.label} <Text as="span" className="text-gradient-brand">*</Text>
               </Field.Label>
-              <Input type="email" placeholder="your@email.com" {...inputStyles} />
+              <Input type="email" placeholder={CONTACT.fields.email.placeholder} {...inputStyles} />
             </Field.Root>
 
             <Field.Root required>
               <Field.Label fontWeight="medium" color="gray.700" mb={2} fontSize="lg">
-                Phone Number <Text as="span" className="text-gradient-brand">*</Text>
+                {CONTACT.fields.phone.label} <Text as="span" className="text-gradient-brand">*</Text>
               </Field.Label>
-              <Input type="text" placeholder="+1 (555) 000-000" {...inputStyles} />
+              <Input type="text" placeholder={CONTACT.fields.phone.placeholder} {...inputStyles} />
             </Field.Root>
 
             <Field.Root required>
               <Field.Label fontWeight="medium" color="gray.700" mb={2} fontSize="lg">
-                Message <Text as="span" className="text-gradient-brand">*</Text>
+                {CONTACT.fields.message.label} <Text as="span" className="text-gradient-brand">*</Text>
               </Field.Label>
               <Textarea
                 rows={4}
-                placeholder="Leave us a message..."
+                placeholder={CONTACT.fields.message.placeholder}
                 borderColor="gray.300"
                 rounded="lg"
                 px={4}
@@ -103,7 +104,7 @@ const Contact = () => (
               _hover={{ opacity: 0.9 }}
               transition="all 0.3s"
             >
-              Submit
+              {CONTACT.submitLabel}
             </Button>
           </Box>
         </Flex>
