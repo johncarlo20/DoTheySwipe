@@ -11,7 +11,7 @@ native-like behavior across iOS, Android, and desktop.
 ---
 
 ## Role
-Design & Frontend Implementation by **Tatiana Gomez**
+Design & Frontend Implementation by **John Saliva**
 
 Scope of work:
 - Translated Figma designs into pixel-perfect React components
@@ -116,4 +116,4 @@ DoTheySwipe/
 ---
 
 ## License
-All rights reserved © Tatiana Gomez
+All rights reserved © John Saliva
